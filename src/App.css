@@ -1,10 +1,50 @@
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+.header {
+  width: 100%;
+  background-color: #828282;
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  position: relative; 
+  margin-bottom: 10px;
+}
+.header-title {
+  font-size: 24px;
+  margin: 0;
+  font-weight: bold;
+}
+/* Add button style */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.floating-button:hover {
+  background-color: #0056b3;
+}
+
 /* Task list styles */
 .task-list-container {
   max-width: 800px;
@@ -85,19 +125,16 @@
   color: #333;
 }
 
-
 .task-form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
-
 
 .form-group {
   display: flex;
   flex-direction: column;
 }
-
 
 .form-label {
   font-size: 14px;
@@ -105,7 +142,6 @@
   color: #181818;
   margin-bottom: 8px;
 }
-
 
 .form-input,
 .form-textarea,
@@ -120,23 +156,21 @@
   color: #555;
 }
 
-
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
-  border-color: #007bff; 
+  border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-
 .form-textarea {
-  resize: vertical; 
-  height: 80px; 
+  resize: vertical;
+  height: 80px;
 }
 
 /* Dropdown */
 .form-select {
-  appearance: none; 
+  appearance: none;
   background-color: #fff;
   cursor: pointer;
   color: #555;
@@ -224,6 +258,20 @@
   .form-button {
     font-size: 18px;
   }
+  .floating-button {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    bottom: 18px;
+    right: 18px;
+  }
+  .page-header {
+    padding: 8px 15px;
+  }
+
+  .header-title {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -244,5 +292,15 @@
 
   .form-header {
     font-size: 28px;
+  }
+  .floating-button {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+    bottom: 25px;
+    right: 25px;
+  }
+  .header-title {
+    font-size: 26px;
   }
 }

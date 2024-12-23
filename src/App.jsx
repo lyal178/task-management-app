@@ -36,26 +36,26 @@ function App() {
     );
   } else {
     return (
-      <>
-        <header>
-          <h1 className="absolute top-0 left-0 w-full bg-gray-800 text-white p-4">
+      <div>
+        <header className="header">
+          <h1 className="header-title">
             To do list
           </h1>
-          <button
-            className="absolute top-10 left-0 w-full bg-gray-800 text-white p-4"
+          <div
+            className="floating-button"
             onClick={() => {
               setIsCreatingNewTask(true);
             }}
           >
-            Add
-          </button>
+            +
+          </div>
         </header>
         <TaskList
           handleNewTaskInfo={handleNewTaskInfo}
           taskArray={taskArray}
           handleRemoveTask={handleRemoveTask}
         ></TaskList>
-      </>
+      </div>
     );
   }
 }
