@@ -3,14 +3,6 @@ import "./App.css";
 import TaskForm from "./Components/TaskForm";
 import TaskList from "./Components/TaskList";
 
-// {
-//   id: Date.now(),
-//   name: "Пробна таска",
-//   description: "Перевірка довжини тексту і не тільки треба тут шось",
-//   priority: "Green",
-//   status: "In progress",
-// },
-
 function App() {
   const [taskArray, setTaskArray] = useState(() => {
     const savedTaskArray = localStorage.getItem("taskArray");

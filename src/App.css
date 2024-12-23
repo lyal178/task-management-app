@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -156,7 +154,7 @@
   display: flex;
   gap: 10px;
   flex-direction: row;
-  /justify-content: flex-start;
+  justify-content: flex-start;
   align-items: center;
 }
 
