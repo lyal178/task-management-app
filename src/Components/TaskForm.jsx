@@ -5,8 +5,8 @@ let TaskForm = ({ setTaskArray, setIsCreatingNewTask }) => {
     id: Date.now(),
     name: "",
     description: "",
-    priority: "",
-    status: "",
+    priority: "Low",
+    status: "New",
   });
 
   const handleChange = (e) => {
@@ -78,9 +78,9 @@ let TaskForm = ({ setTaskArray, setIsCreatingNewTask }) => {
             value={newTask.priority}
             onChange={handleChange}
           >
-            <option value="Priority1">Low</option>
-            <option value="Priority2">Medium</option>
-            <option value="Priority3">High</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </div>
         {/* Status Dropdown */}
@@ -95,9 +95,9 @@ let TaskForm = ({ setTaskArray, setIsCreatingNewTask }) => {
             value={newTask.status}
             onChange={handleChange}
           >
-            <option value="new">New</option>
-            <option value="inProgres">In Progress</option>
-            <option value="done">Completed</option>
+            <option value="New">New</option>
+            <option value="In progress">In Progress</option>
+            <option value="Completed">Completed</option>
           </select>
         </div>
         <div>

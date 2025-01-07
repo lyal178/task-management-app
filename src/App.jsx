@@ -14,9 +14,12 @@ function App() {
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
   }, [taskArray]);
 
-  const handleNewTaskInfo = (id, newObj) => {
-    setTaskArray((prevTasks) => prevTasks.filter((task) => task.id !== id));
-    setTaskArray((prevTasks) => [...prevTasks, newObj]);
+  const handleNewTaskInfo = (newObj) => {
+    setTaskArray((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === newObj.id ? { ...task, ...newObj } : task
+      )
+    );
   };
 
   const handleRemoveTask = (idToRemove) => {
@@ -38,9 +41,7 @@ function App() {
     return (
       <div>
         <header className="header">
-          <h1 className="header-title">
-            To do list
-          </h1>
+          <h1 className="header-title">To do list</h1>
           <div
             className="floating-button"
             onClick={() => {

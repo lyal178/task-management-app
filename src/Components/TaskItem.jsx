@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const TaskItem = ({ task, handleRemoveTask, handleNewTaskInfo }) => {
+const TaskItem = ({
+  task,
+  handleRemoveTask,
+  handleNewTaskInfo,
+  isEditing,
+  onEditStart,
+  onEditEnd,
+}) => {
   const [taskInfo, setTaskInfo] = useState(task);
-  const [isEditing, setIsEditing] = useState(false);
 
   return (
     <li className="form-container">
@@ -115,13 +121,13 @@ const TaskItem = ({ task, handleRemoveTask, handleNewTaskInfo }) => {
         </p>
       </div>
       <div className="task-actions">
-        {/* edit/save button */}
+        {/* save/edit button */}
         {isEditing ? (
           <button
             className="task-button edit-button"
             onClick={() => {
               if (taskInfo.name.trim() !== "") {
-                handleNewTaskInfo(taskInfo.id, taskInfo), setIsEditing(false);
+                handleNewTaskInfo(taskInfo), onEditEnd();
               } else {
                 alert("Fill name");
               }
@@ -132,23 +138,23 @@ const TaskItem = ({ task, handleRemoveTask, handleNewTaskInfo }) => {
         ) : (
           <button
             onClick={() => {
-              setIsEditing(true);
+              onEditStart(task.id);
             }}
             className="task-button edit-button"
           >
             Edit
           </button>
         )}
-        {/* Delete/Cancel button */}
+        {/* Cancel/delete button */}
         {isEditing ? (
           <button
             onClick={() => {
-              setIsEditing(false);
+              onEditEnd();
               setTaskInfo(task);
             }}
             className="task-button delete-button"
           >
-            Calcel
+            Cancel
           </button>
         ) : (
           <button

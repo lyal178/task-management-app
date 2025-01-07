@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskItem from "./TaskItem";
 import "../App.css";
 
-const TaskList = ({ taskArray, handleRemoveTask,handleNewTaskInfo}) => {
+const TaskList = ({ taskArray, handleRemoveTask, handleNewTaskInfo }) => {
+  const [editingTaskId, setEditingTaskId] = useState(null);
+
+  const handleEditStart = (taskId) => {
+    setEditingTaskId(taskId);
+  };
+
+  const handleEditEnd = () => {
+    setEditingTaskId(null);
+  };
   return (
     <>
       <div className="task-list-container">
@@ -13,6 +22,9 @@ const TaskList = ({ taskArray, handleRemoveTask,handleNewTaskInfo}) => {
               task={task}
               handleRemoveTask={handleRemoveTask}
               handleNewTaskInfo={handleNewTaskInfo}
+              isEditing={editingTaskId === task.id}
+              onEditStart={() => handleEditStart(task.id)}
+              onEditEnd={handleEditEnd}
             ></TaskItem>
           ))}
         </ul>
